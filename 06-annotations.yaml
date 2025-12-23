@@ -8,3 +8,53 @@ spec:
   containers:
   - name: nginx
     image: nginx
+
+
+#==================
+# Start Time:       Tue, 23 Dec 2025 12:03:04 +0000
+# Labels:           <none>
+# Annotations:      Github.url: github.com/tsword24
+# Status:           Running
+# IP:               
+# IPs:
+#   IP:  
+# Containers:
+#   nginx:
+#     Container ID:   containerd://43617c091aeb63bfac0484308b1386eae1a0c4e5ff6ed055571471a042387b97
+#     Image:          nginx
+#     Image ID:       docker.io/library/nginx@sha256:fb01117203ff38c2f9af91db1a7409459182a37c87cced5cb442d1d8fcc66d19
+#     Port:           <none>
+#     Host Port:      <none>
+#     State:          Running
+#       Started:      Tue, 23 Dec 2025 12:03:07 +0000
+#     Ready:          True
+#     Restart Count:  0
+#     Environment:    <none>
+#     Mounts:
+#       /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-lnt2n (ro)
+# Conditions:
+#   Type                        Status
+#   PodReadyToStartContainers   True
+#   Initialized                 True
+#   Ready                       True
+#   ContainersReady             True
+#   PodScheduled                True
+# Volumes:
+#   kube-api-access-lnt2n:
+#     Type:                    Projected (a volume that contains injected data from multiple sources)
+#     TokenExpirationSeconds:  3607
+#     ConfigMapName:           kube-root-ca.crt
+#     Optional:                false
+#     DownwardAPI:             true
+# QoS Class:                   BestEffort
+# Node-Selectors:              <none>
+# Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+#                              node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+# Events:
+#   Type    Reason     Age   From               Message
+#   ----    ------     ----  ----               -------
+#   Normal  Scheduled  24m   default-scheduler  Successfully assigned default/annotations to ip-192-168-49-155.ec2.internal
+#   Normal  Pulling    24m   kubelet            Pulling image "nginx"
+#   Normal  Pulled     24m   kubelet            Successfully pulled image "nginx" in 2.699s (2.699s including waiting). Image size: 59795293 bytes.
+#   Normal  Created    24m   kubelet            Created container: nginx
+#   Normal  Started    24m   kubelet            Started container nginx
