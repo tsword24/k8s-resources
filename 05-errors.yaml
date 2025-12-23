@@ -1,8 +1,79 @@
+# apiVersion: v1
+# kind: Pod
+# metadata:
+#   name: error-file
+# spec:
+#   containers:
+#   - name: frontend
+#     image: nginc
+#=================================================
+# this is for wrong image name(Image Pull backOff)
+#=================================================
+# Name:             error-file 
+# Namespace:        default
+# Priority:         0
+# Service Account:  default
+# Node:             ip-192-168-20-90.ec2.internal/192.168.20.90
+# Start Time:       Tue, 23 Dec 2025 09:04:57 +0000
+# Labels:           <none>
+# Annotations:      <none>
+# Status:           Pending
+# IP:               192.168.10.59
+# IPs:
+#   IP:  192.168.10.59
+# Containers:
+#   frontend:
+#     Container ID:
+#     Image:          nginc
+#     Image ID:
+#     Port:           <none>
+#     Host Port:      <none>
+#     State:          Waiting
+#       Reason:       ImagePullBackOff
+#     Ready:          False
+#     Restart Count:  0
+#     Environment:    <none>
+#     Mounts:
+#       /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-sk9dv (ro)
+# Conditions:
+#   Type                        Status
+#   PodReadyToStartContainers   True
+#   Initialized                 True
+#   Ready                       False
+#   ContainersReady             False
+#   PodScheduled                True
+# Volumes:
+#   kube-api-access-sk9dv:
+#     Type:                    Projected (a volume that contains injected data from multiple sources)
+#     TokenExpirationSeconds:  3607
+#     ConfigMapName:           kube-root-ca.crt
+#     Optional:                false
+#     DownwardAPI:             true
+# QoS Class:                   BestEffort
+# Node-Selectors:              <none>
+# Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+#                              node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+# Events:
+#   Type     Reason     Age                From               Message
+#   ----     ------     ----               ----               -------
+#   Normal   Scheduled  51s                default-scheduler  Successfully assigned default/error-file to ip-192-168-20-90.ec2.internal
+#   Normal   BackOff    25s (x2 over 50s)  kubelet            Back-off pulling image "nginc"
+#   Warning  Failed     25s (x2 over 50s)  kubelet            Error: ImagePullBackOff
+#   Normal   Pulling    13s (x3 over 51s)  kubelet            Pulling image "nginc"
+#   Warning  Failed     13s (x3 over 51s)  kubelet            Failed to pull image "nginc": failed to pull and unpack image "docker.io/library/nginc:latest": failed to resolve reference "docker.io/library/nginc:latest": pull access denied, repository does not exist or may require authorization: server message: insufficient_scope: authorization failed
+#   Warning  Failed     13s (x3 over 51s)  kubelet            Error: ErrImagePull
+
+
+
+#===========================================================
+#This is crash loop backOff Error(unable to start container)
+#===========================================================
+
 apiVersion: v1
 kind: Pod
-metadata:
-  name: error-file
+metadata: 
+  name: frontend
 spec:
-  containers:
-  - name: frontend
-    image: nginc
+  container:
+  - name: almalinux
+    image: almalinux:9   
