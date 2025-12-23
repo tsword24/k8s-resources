@@ -74,6 +74,6 @@ kind: Pod
 metadata: 
   name: frontend
 spec:
-  container:
+  containers:
   - name: almalinux
     image: almalinux:9   
