@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: error-file
-specs:
+spec:
   containers:
   - name: frontend
     image: nginc
