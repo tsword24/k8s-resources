@@ -9,5 +9,5 @@ metadata:
     version: v1
 spec:
   containers:
-   name: frontend
-   image: nginx
+  - name: frontend
+    image: nginx
