@@ -77,3 +77,62 @@ spec:
   containers:
   - name: almalinux
     image: almalinux:9   
+
+# [ ec2-user@ip-172-31-73-75 ~/k8s-resources ]$ kubectl apply -f 05-errors.yaml
+# pod/error-test created
+
+# [ ec2-user@ip-172-31-73-75 ~/k8s-resources ]$ kubectl get pods
+# NAME         READY   STATUS      RESTARTS     AGE
+# error-test   0/1     Completed   1 (3s ago)   8s
+
+# [ ec2-user@ip-172-31-73-75 ~/k8s-resources ]$ kubectl get pods
+# NAME         READY   STATUS             RESTARTS     AGE
+# error-test   0/1     CrashLoopBackOff   1 (4s ago)   10s
+
+# Containers:
+#   almalinux:
+#     Container ID:   containerd://ae865e973407600c68478977492fc068559ae48690055d4ee118a1625638498a
+#     Image:          almalinux:9
+#     Image ID:       docker.io/library/almalinux@sha256:9c869fd1056a929a1a6c6811a991b5dcb7a1ccfb8e8c44165d9719192826d4ac
+#     Port:           <none>
+#     Host Port:      <none>
+#     State:          Waiting
+#       Reason:       CrashLoopBackOff
+#     Last State:     Terminated
+#       Reason:       Completed
+#       Exit Code:    0
+#       Started:      Tue, 23 Dec 2025 09:20:12 +0000
+#       Finished:     Tue, 23 Dec 2025 09:20:12 +0000
+#     Ready:          False
+#     Restart Count:  3
+#     Environment:    <none>
+#     Mounts:
+#       /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-xnnz9 (ro)
+# Conditions:
+#   Type                        Status
+#   PodReadyToStartContainers   True
+#   Initialized                 True
+#   Ready                       False
+#   ContainersReady             False
+#   PodScheduled                True
+# Volumes:
+#   kube-api-access-xnnz9:
+#     Type:                    Projected (a volume that contains injected data from multiple sources)
+#     TokenExpirationSeconds:  3607
+#     ConfigMapName:           kube-root-ca.crt
+#     Optional:                false
+#     DownwardAPI:             true
+# QoS Class:                   BestEffort
+# Node-Selectors:              <none>
+# Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+#                              node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+# Events:
+#   Type     Reason     Age                From               Message
+#   ----     ------     ----               ----               -------
+#   Normal   Scheduled  93s                default-scheduler  Successfully assigned default/error-test to ip-192-168-45-79.ec2.internal
+#   Normal   Pulling    93s                kubelet            Pulling image "almalinux:9"
+#   Normal   Pulled     88s                kubelet            Successfully pulled image "almalinux:9" in 4.068s (4.068s including waiting). Image size: 70424304 bytes.
+#   Normal   Created    48s (x4 over 88s)  kubelet            Created container: almalinux
+#   Normal   Started    48s (x4 over 88s)  kubelet            Started container almalinux
+#   Normal   Pulled     48s (x3 over 87s)  kubelet            Container image "almalinux:9" already present on machine
+#   Warning  BackOff    9s (x8 over 86s)   kubelet            Back-off restarting failed container almalinux in pod error-test_default(9280aa52-1ea9-47ce-9da5-daa96b1faf84)
