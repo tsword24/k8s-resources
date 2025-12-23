@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-map
+data:
+  course: "DevSecOps"
+  duration: "120 hrs"
+
+
+# [ ec2-user@ip-172-31-66-176 ~/k8s-resources ]$ kubectl apply -f 09-pod-config.yaml
+# configmap/pod-config created
+
+# [ ec2-user@ip-172-31-66-176 ~/k8s-resources ]$ kubectl get configmap
+# NAME               DATA   AGE
+# kube-root-ca.crt   1      4h39m
+# pod-config         2      12s
+
+
+#  kubectl describe configmap pod-config
+# Name:         pod-config
+# Namespace:    default
+# Labels:       <none>
+# Annotations:  <none>
+
+# Data
+# ====
+# course:
+# ----
+# DevSecOps
+
+# duration:
+# ----
+# 120 hrs
+
+
+# BinaryData
+# ====
+
+# Events:  <none>
+
