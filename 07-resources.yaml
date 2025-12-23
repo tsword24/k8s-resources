@@ -12,4 +12,13 @@ spec:
         cpu: "100m" #1/10th of the CPU
       limits:   #limits should be equal or greater than requests
         memory: "80Mi"
-        cpu: "120m"
+        cpu: "110m"
+
+
+
+# ====================
+# [ ec2-user@ip-172-31-66-176 ~/k8s-resources ]$ kubectl top pods
+# NAME          CPU(cores)   MEMORY(bytes)
+# annotations   0m           3Mi
+# resources     0m           3Mi
+
