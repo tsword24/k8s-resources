@@ -8,9 +8,10 @@ metadata:
     project: roboshop
 spec:
   replicas: 10
-  matchLabels:
-    purpose: rp-demo
-    project: roboshop
+  selector:
+    matchLabels:
+      purpose: rp-demo
+      project: roboshop
   #pod definition
   template:
     metadata:
