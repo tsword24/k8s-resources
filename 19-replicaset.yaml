@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx
+        image: nginx:latest
 
 
 #   Lines 7–8 (Metadata Labels): This is the barcode on the outside of the shipping crate (the ReplicaSet). It tells the warehouse manager what is inside the crate.
