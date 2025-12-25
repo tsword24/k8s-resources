@@ -12,7 +12,7 @@ metadata:
 spec:
   replicas: 10
   matchLabels:
-    purpose: rp-dem0
+    purpose: rp-demo
     project: roboshop
   #pod definition
   template:
