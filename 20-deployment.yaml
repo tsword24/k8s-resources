@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+  #these are replica set labels
+  labels:
+    purpose: rp-demo
+    project: roboshop
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      purpose: rp-demo
+      project: roboshop
+  #pod definition
+  template:
+    metadata:
+      labels:
+        purpose: rp-demo
+        project: roboshop
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
