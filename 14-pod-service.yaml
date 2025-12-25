@@ -10,3 +10,38 @@ spec:
   containers:
   - name: nginx
     image: nginx
+
+
+# 3.231.145.51 | 172.31.13.202 | t3.micro | https://github.com/tsword24/k8s-resources.git
+# [ ec2-user@ip-172-31-13-202 ~/k8s-resources ]$ kubectl apply -f 14-pod-service.yaml
+# pod/pod-service unchanged
+
+# 3.231.145.51 | 172.31.13.202 | t3.micro | https://github.com/tsword24/k8s-resources.git
+# [ ec2-user@ip-172-31-13-202 ~/k8s-resources ]$ kubectl get pods -o wide
+# NAME          READY   STATUS    RESTARTS   AGE    IP               NODE                            NOMINATED NODE   READINESS GATES
+# pod-service   1/1     Running   0          109s   192.168.34.128   ip-192-168-63-70.ec2.internal   <none>           <none>
+
+# 3.231.145.51 | 172.31.13.202 | t3.micro | https://github.com/tsword24/k8s-resources.git
+# [ ec2-user@ip-172-31-13-202 ~/k8s-resources ]$ kubectl get svc
+# NAME         TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)   AGE
+# kubernetes   ClusterIP   10.100.0.1       <none>        443/TCP   55m
+# nginx        ClusterIP   10.100.166.200   <none>        80/TCP    10m
+
+# 3.231.145.51 | 172.31.13.202 | t3.micro | https://github.com/tsword24/k8s-resources.git
+# [ ec2-user@ip-172-31-13-202 ~/k8s-resources ]$ kubectl describe service nginx
+# Name:                     nginx
+# Namespace:                default
+# Labels:                   <none>
+# Annotations:              <none>
+# Selector:                 component=frontend,environment=dev,project=roboshop
+# Type:                     ClusterIP
+# IP Family Policy:         SingleStack
+# IP Families:              IPv4
+# IP:                       10.100.166.200
+# IPs:                      10.100.166.200
+# Port:                     <unset>  80/TCP
+# TargetPort:               80/TCP
+# Endpoints:                192.168.34.128:80             ===>here the pod is attached to service and check for labels if it is not attached  
+# Session Affinity:         None
+# Internal Traffic Policy:  Cluster
+# Events:                   <none>
