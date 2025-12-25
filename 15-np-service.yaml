@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: np-nginx
 spec:
-  type: nodePort
+  type: NodePort
   selector:
     project: roboshop
     component: frontend
