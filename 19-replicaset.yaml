@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: nginx
+  #these are replica set labels
+#   Lines 7–8 (Metadata Labels): This is the barcode on the outside of the shipping crate (the ReplicaSet). It tells the warehouse manager what is inside the crate.
+
+# Lines 11–13 (Selector/MatchLabels): This is the instruction manual inside the crate. It tells the ReplicaSet exactly which items (Pods) it is responsible for "owning" and keeping track of.
+#   labels:
+#     purpose: rp-demo
+#     project: roboshop
+spec:
+  replicas: 10
+  matchLabels:
+    purpose: rp-demo
+    project: roboshop
+  #pod definition
+  template:
+    metadata:
+      labels:
+        purpose: rp-demo
+        project: roboshop
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
