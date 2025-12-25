@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: pod-nb-service
+  name: pod-lb-service
   labels:
     environment: dev
     project: roboshop
     component: frontend
-    service: np-service
+    service: lb-service
 spec:
   containers:
   - name: nginx
