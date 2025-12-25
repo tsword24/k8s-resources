@@ -3,12 +3,9 @@ kind: ReplicaSet
 metadata:
   name: nginx
   #these are replica set labels
-#   Lines 7–8 (Metadata Labels): This is the barcode on the outside of the shipping crate (the ReplicaSet). It tells the warehouse manager what is inside the crate.
-
-# Lines 11–13 (Selector/MatchLabels): This is the instruction manual inside the crate. It tells the ReplicaSet exactly which items (Pods) it is responsible for "owning" and keeping track of.
-#   labels:
-#     purpose: rp-demo
-#     project: roboshop
+  labels:
+    purpose: rp-demo
+    project: roboshop
 spec:
   replicas: 10
   matchLabels:
@@ -24,3 +21,15 @@ spec:
       containers:
       - name: nginx
         image: nginx
+
+
+#   Lines 7–8 (Metadata Labels): This is the barcode on the outside of the shipping crate (the ReplicaSet). It tells the warehouse manager what is inside the crate.
+
+# Lines 11–13 (Selector/MatchLabels): This is the instruction manual inside the crate. It tells the ReplicaSet exactly which items (Pods) it is responsible for "owning" and keeping track of.
+#   labels:
+#     purpose: rp-demo
+#     project: roboshop
+
+# Lines 7–8 (metadata.labels)	The ReplicaSet	Organizing, searching, and cost-tracking in AWS/EKS.
+# Lines 11–13 (spec.selector)	The Relationship	Defining which Pods the ReplicaSet must maintain.
+# Lines 16–18 (template.metadata)	The Pods	Identifying the individual containers running on nodes.
